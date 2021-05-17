@@ -77,10 +77,11 @@ describe('Testing challenge 4', () => {
 ------------------------------------------------------------------------------------------------ */
 
 const forLoopTwoToThe = (arr) => {
-  let forArr = arr.map((item)=>{
-   return Math.pow(2,item);
-  })
-  return forArr;
+  let newArry=[];
+  for (let i = 0; i < arr.length; i++) {
+    newArry.push(Math.pow(2,arr[i]));
+  }
+  return newArry;
 };
 
 /* ------------------------------------------------------------------------------------------------
