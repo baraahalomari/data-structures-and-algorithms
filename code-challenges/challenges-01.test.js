@@ -14,10 +14,11 @@ describe('Testing challenge 1', () => {
 ------------------------------------------------------------------------------------------------ */
 
 const addOne = (arr) => {
-  let newArr=[];
-  arr.forEach(val =>{
-    return newArr.push(val + 1);
-  })
+  let newArr = [];
+  arr.forEach(val => {
+    newArr.push(val + 1);
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -34,9 +35,11 @@ describe('Testing challenge 2', () => {
 ------------------------------------------------------------------------------------------------ */
 
 const addExclamation = (arr) => {
-  arr.forEach(val=>{
-    return arr.push(arr+`!`);
-  })
+  let newArr1 = [];
+  arr.forEach(num => {
+    newArr1.push(num + '!');
+  });
+  return newArr1;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -53,9 +56,11 @@ describe('Testing challenge 3', () => {
 ------------------------------------------------------------------------------------------------ */
 
 const allUpperCase = (arr) => {
-  arr.forEach(val=>{
-    return arr.toUpperCase() ;
-  })
+  let newArr2 = [];
+  arr.forEach(num => {
+    newArr2.push(num.toUpperCase());
+  });
+  return newArr2;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -75,14 +80,12 @@ describe('Testing challenge 4', () => {
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
-  word.forEach(val=>{
-    return word.toUpperCase()+`!`;
-  })
+  return word.toUpperCase() + `!`;
 };
 
 const speaker = (words, callback) => {
-  let newArr =[];
-  words.forEach(val=>{
+  let newArr = [];
+  words.forEach(val => {
     let newItem = callback(val);
     newArr.push(newItem);
   })
@@ -113,17 +116,14 @@ describe('Testing challenge 5', () => {
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
-    arr.push(value);
-  
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
-  arr.forEach(val=>{
-    arr.push(num);
-    this.times=times;
-    let newItem = callback(val);
-    arr.push(newItem);
-  })
+  for (let i = 0; i < times; i++) {
+    callback(arr, num);
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -145,8 +145,22 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  // Solution code here...
+  let itemList = [];
+  availableItems = [
+    { name: 'apples', available: true },
+    { name: 'pears', available: true },
+    { name: 'oranges', available: false },
+    { name: 'bananas', available: true },
+    { name: 'blueberries', available: false }
+  ];
+  availableItems.forEach(element => {
+    if (element.available) {
+      itemList.push(element.name);
+    }
+  });
+  return itemList;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 STRETCH - CHALLENGE 7
@@ -163,7 +177,17 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
+   let arrFunction = [];
+   arr.forEach(num =>{
+     if (num % 3 === 0 & num % 5 === 0){
+       arrFunction.push('Fizz Buzz');
+     } else if (num % 3 === 0){
+       arrFunction.push('Fizz');
+     }else if ( num % 5 === 0){
+      arrFunction.push(num);
+     }
+   });
+   return arrFunction;
 };
 
 /* ------------------------------------------------------------------------------------------------
