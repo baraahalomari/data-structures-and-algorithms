@@ -5,4 +5,4 @@ Write a function called insertShiftArray which takes in an array and a value to 
 ![array-insert-shift](./Screenshot.jpg)
 
 ## Approach & Efficiency
-It take an hour first I wote a discription of the code and the problem domain then start coding
+It take an hour first I wrote a discription of the code and the problem domain then start coding
