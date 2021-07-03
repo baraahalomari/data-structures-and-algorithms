@@ -1,33 +1,45 @@
 'use strict';
-// Require our linked list implementation
+
 const LinkedLilst = require('../index');
-describe('checks if it includes a value',()=>{
-  test('insert',()=>{
+
+describe('Linked List',()=>{
+  it('Should Instantiate',()=>{
+    const ll = new LinkedLilst();
+    expect(ll).toBeDefined();
+    expect(ll.head).toBeNull();
+  });
+});
+
+describe('can insert',()=>{
+  it('can insert head ', ()=>{
     let ll = new LinkedLilst();
-    expect(ll.head).toBe(null);
-    ll.insert('a');
-    expect(ll.head.value).toBe('a');
-    ll.insert(false);
-    ll.insert('c');
-    ll.insert('d');
-    // 
-  })
-  test('includes',()=>{
+    ll.insert('first');
+    expect(ll.head.value).toBe('first');      
+  });
+  it('multiple nodes',()=>{
     let ll = new LinkedLilst();
-    ll.insert('a');
-    ll.insert(false);
-    ll.insert('c');
-    ll.insert('d');
-    expect(ll.includes('d')).toBe(true);
-    expect(ll.includes('a')).toBe(true);
-    expect(ll.includes('h')).toBe(false);
-  })
-  test('read all node values',()=>{
+    ll.insert('first');
+    ll.insert('sec');
+    ll.insert('thir');
+    expect(ll.head.next).toBeDefined();
+  });
+  it('include node',()=>{
     let ll = new LinkedLilst();
-    ll.insert('a');
-    ll.insert(false);
-    ll.insert('c');
-    ll.insert('d');
-    expect(ll.toString()).toBe('{d} -> {c} -> {false} -> {a}');
+    ll.insert('first');
+    ll.insert('sec');
+    ll.insert('thir');
+    expect(ll.includes('sec')).toBeTruthy();
+    expect(ll.includes('fourth')).toBeFalsy();
+  });
+  it('return a collection',()=>{
+    let ll = new LinkedLilst();
+    ll.insert('first');
+    ll.insert('sec');
+    ll.insert('thir');
+    expect(ll.toString()).toBe('{thir} -> {sec} -> {first}')
   })
 })
+
+
+
+
