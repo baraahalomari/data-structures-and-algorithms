@@ -101,59 +101,6 @@ describe('linked-list-insertions',()=>{
 });
 
 
-describe('linked-list-kth',()=>{
-  it('k is greater than the length ',()=>{
-    const ll = new LinkedLilst();
-    ll.append('first');
-    ll.append('sec');
-    ll.append('thir');
-    ll.append('fourth');
-    expect(ll.kthFromEnd(15)).toBe('Exception');
-    
-  });
-
-  it('k and the length of the list are the same',()=>{
-    const ll = new LinkedLilst();
-    ll.append('first');
-    ll.append('sec');
-    ll.append('thir');
-    ll.append('fourth');
-    expect(ll.kthFromEnd(4)).toBe('Exception');
-    
-  });
-
-  it(' k is not a positive',()=>{
-    const ll = new LinkedLilst();
-    ll.append('first');
-    ll.append('sec');
-    ll.append('thir');
-    ll.append('fourth');
-    expect(ll.kthFromEnd(-4)).toBe('Exception');
-    
-  });
-
-  it(' the linked list is of a size 1',()=>{
-    const ll = new LinkedLilst();
-    ll.append('first');
-    expect(ll.kthFromEnd(0)).toBe('first');
-    
-  });
-
-  it('Happy Path” where k is not at the end',()=>{
-    const ll = new LinkedLilst();
-    ll.append('first');
-    ll.append('sec');
-    ll.append('thir');
-    ll.append('fourth');
-    ll.append('fif');
-    ll.append('sixth');
-    ll.append('siventh');
-    expect(ll.kthFromEnd(3)).toBe('fourth');
-    
-  });
-});
-
-
 
 
 
