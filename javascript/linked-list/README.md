@@ -9,7 +9,7 @@
 
 ## Challenge
 
-Write a method for the Linked List class take an argument number as a parameter. Return the node’s value that is places from the tail of the linked list.
+Write a function called zip lists take Arguments (2 linked lists) then Return a Linked List zipped 
 
 
 ## Approach & Efficiency
