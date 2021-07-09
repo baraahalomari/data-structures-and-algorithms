@@ -108,6 +108,23 @@ class LinkedList {
   }
 
 
+  kthFromEnd(k) {
+    let current = this.head;
+    let arr = [];
+    while (current) {
+      arr.push(current.value);
+      current = current.next;
+    }
+    console.log(arr);
+    if (arr.length <= k  || k< 0) {
+      return 'Exception';
+    } else {
+      return arr[arr.length - 1 - k]
+    }
+  }
+
+
+
 }
 
 function linkedListZip(list1,list2){
