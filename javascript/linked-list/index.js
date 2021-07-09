@@ -114,7 +114,7 @@ class LinkedList {
       arr.push(current.value);
       current = current.next;
     }
-    console.log(arr)
+    console.log(arr);
     if (arr.length <= k  || k< 0) {
       return 'Exception';
     } else {
