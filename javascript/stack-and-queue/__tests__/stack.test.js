@@ -1,10 +1,9 @@
 'use strict';
-const LinkedList = require('../../linked-list/index').LinkedList;
 const Stack = require('../index').Stack;
 describe('Stack', () => {
     let stack;
     beforeEach(() => {
-      stack = new Stack( new LinkedList());
+      stack = new Stack();
     });
     describe('push', () => {
         it('Can successfully push one or multiple onto a stack', () => {
@@ -25,7 +24,7 @@ describe('Stack', () => {
         expect(stack.pop()).toEqual(2);
         expect(stack.pop()).toEqual(1);
         // Can successfully empty a stack after multiple pops
-        expect(stack.peek()).toBe("cant find the peek of an empty stack");
+        expect(stack.peek()).toBe("An empty stack");
     });
     });
     describe('peek', () => {
@@ -40,7 +39,7 @@ describe('Stack', () => {
       expect(stack instanceof Stack).toBeTruthy();
     });
     it('Calling pop or peek on empty stack raises exception',()=>{
-      expect(stack.pop()).toBe('cant pop off an empty stack');
-      expect(stack.peek()).toBe("cant find the peek of an empty stack");
+      expect(stack.pop()).toBe('An empty stack');
+      expect(stack.peek()).toBe("An empty stack");
     })
 });

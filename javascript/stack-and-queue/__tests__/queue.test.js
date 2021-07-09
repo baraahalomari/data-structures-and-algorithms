@@ -21,7 +21,7 @@ describe('Queue', () => {
       expect(queue.dequeue()).toEqual(1);
       expect(queue.dequeue()).toEqual(2);
       expect(queue.dequeue()).toEqual(3);
-      expect(queue.peek()).toBe('cant find the peek of an empty queue');
+      expect(queue.peek()).toBe('An empty queue');
     });
   });
   describe('Can successfully peek into a queue, seeing the expected value', () => {
@@ -40,14 +40,14 @@ describe('Queue', () => {
       expect(queue.dequeue()).toEqual(1);
       expect(queue.dequeue()).toEqual(2);
       expect(queue.dequeue()).toEqual(3);
-      expect(queue.peek()).toBe("cant find the peek of an empty queue");
+      expect(queue.peek()).toBe("An empty queue");
     });
   });
   it('Can successfully instantiate an empty queue', () => {
     expect(queue instanceof Queue).toBeTruthy();
   });
   it('Calling pop or peek on empty queue raises exception', () => {
-    expect(queue.peek()).toBe("cant find the peek of an empty queue");
-    expect(queue.dequeue()).toBe('cant dequeue an empty queue');
+    expect(queue.peek()).toBe("An empty queue");
+    expect(queue.dequeue()).toBe('An empty queue');
   });
 });
