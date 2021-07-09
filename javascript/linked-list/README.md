@@ -17,23 +17,13 @@ write the problem domaine and the algoritheme of the code then write the code st
 
 ## API
 **insert** : Adds a new node with that value to the head of the list with an O(1) Time performance.
-
 **includes**: Indicates whether that value exists as a Node’s value somewhere within the list.
-
 **to string** : Returns: a string representing all the values in the Linked List.
-
 **append**: add new value too the end.
-
 **append after** : add new value after specific node.
-
 **append before** : add new value before specific node.
 
-**kthFromEnd**: Return the node’s value that is places from the tail of the linked list.
-
-
 ## Whiteboard Process
-
-
 ![UMR](./33.png)
 
 

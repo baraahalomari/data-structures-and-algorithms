@@ -107,6 +107,7 @@ class LinkedList {
     }
   }
 
+
   kthFromEnd(k) {
     let current = this.head;
     let arr = [];
@@ -121,6 +122,7 @@ class LinkedList {
       return arr[arr.length - 1 - k]
     }
   }
+
 
 
 }
