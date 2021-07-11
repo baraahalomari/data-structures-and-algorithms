@@ -6,7 +6,7 @@ class Node {
 }
 
 class Stack {
-    constructor(list) {
+    constructor() {
         this.top = null
 
     }
@@ -47,41 +47,41 @@ class Stack {
 
 
 class Queue {
-    constructor(list) {
-        this.storage = list;
-    }
-
-    enqueue(value) {
-        let node1 = new Node(value);
-        if (!this.storage.head) {
-            this.storage.head = node1;
-            this.storage.rear = node1;
+    constructor(){
+        this.front=null;
+        this.rear=null;
+      }
+      enqueue(value){
+        let addedNode = new Node(value);
+        if(!this.front){
+          this.front= addedNode;
+          this.rear= addedNode;
         } else {
-            this.storage.rear.next = node1;
-            this.storage.rear = node1;
+          
+          this.rear.next=addedNode;
+          this.rear =addedNode;
         }
+        return this.rear;
+      }
 
-    }
-
-    dequeue() {
-        if (!this.storage.head) {
-            return 'An empty queue';
+      dequeue(){
+        if(!this.front){
+           return 'An empty queue';
+        } else {
+          let temp = this.front;
+          this.front = this.front.next;
+          return temp.value;
         }
-        let temp = this.storage.head;
-        this.storage.head = temp.next;
-        temp.next = null;
-        return temp.value;
-    }
-
-    peek() {
-        if (!this.storage.head) {
-            return 'An empty queue';
+      }
+      peek(){
+        if(!this.front){
+           return 'An empty queue';
+        } else{
+          return this.front.value;
         }
-        return this.storage.head.value;
-    }
-
+      }
     isEmpty() {
-        if (!this.storage.head) {
+        if (!this.front) {
             return true;
         } else {
             return false;
