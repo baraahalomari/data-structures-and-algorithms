@@ -1,9 +1,8 @@
-const LinkedList = require('../../linked-list/index').LinkedList;
 const Queue = require('../index').Queue;
 describe('Queue', () => {
   let queue;
   beforeEach(() => {
-    queue = new Queue(new LinkedList);
+    queue = new Queue();
   });
   describe('Can successfully enqueue into a queue', () => {
     it('enqueue into a queue + enqueue multiple values into a queue', () => {
