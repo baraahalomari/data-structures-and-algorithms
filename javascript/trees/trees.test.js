@@ -63,3 +63,40 @@ describe('tree',()=>{
         expect(tree.postOrder()).toEqual([3,7,5,13,17,15,10]);
     })
 })
+
+
+describe('Get max node', () => {
+
+    let tree = new BinaryTree();
+    let tree1 = new Node(1);
+    let tree2 = new Node(0);
+    let tree3 = new Node(2);
+    let tree4 = new Node(15);
+    let tree5 = new Node(5);
+    let tree6 = new Node(70);
+    let tree7 = new Node(35);
+    let tree8 = new Node(7);
+    let tree9 = new Node(1);
+
+    tree.root = tree1;
+    tree.root.left = tree2;
+    tree.root.right = tree3;
+    tree.root.left.left = tree4;
+    tree.root.left.right = tree5;
+    tree.root.right.left = tree6;
+    tree.root.right.right = tree7;
+    tree.root.left.left.left = tree8;
+    tree.root.left.left.right = tree9;
+    test('max node value in a binary tree',()=>{
+        expect(tree.getMax()).toBe(70);
+    })
+    test('returns an error statement for an empty tree',()=>{
+        let tree2 = new BinaryTree();
+        expect(tree2.getMax()).toBe('cant get max of an empty tree');
+    })
+})
+
+
+
+
+

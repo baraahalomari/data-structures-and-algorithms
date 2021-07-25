@@ -15,4 +15,9 @@ Note : I worked as a group with my colleagues .
 ## API
 **add**: Adds a new node with that value in the correct location in the binary search 
 **Contains**: Returns: boolean indicating whether or not the value is in the tree at least 
+**getMax**: Find the maximum value stored in the tree.
 
+
+## UML Diagrame
+
+![uml](./33.png)
