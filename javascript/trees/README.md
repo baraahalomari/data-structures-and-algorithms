@@ -5,6 +5,7 @@
 > Create a Binary Search Tree class 
 > Adds a new node with that value in the correct location in the binary search 
 > Returns: boolean indicating whether or not the value is in the tree at least 
+> Traverse the input tree using a Breadth-first approach
 
 
 ## Approach & Efficiency
@@ -14,9 +15,12 @@ Note : I worked as a group with my colleagues .
 
 ## API
 **add**: Adds a new node with that value in the correct location in the binary search 
+
 **Contains**: Returns: boolean indicating whether or not the value is in the tree at least 
+
 **getMax**: Find the maximum value stored in the tree.
 
+**breadthFirst**: list of all values in the tree, in the order they were encountered
 
 ## UML Diagrame
 

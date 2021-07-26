@@ -59,8 +59,8 @@ class BinaryTree {
   }
 
   getMax() {
-    if(this.root==null){
-      return('cant get max of an empty tree');
+    if (this.root == null) {
+      return ('cant get max of an empty tree');
     }
 
     let maxNode = this.root.value;
@@ -131,9 +131,35 @@ class BinarySearchTree extends BinaryTree {
     }
   }
 
-  
+
 
 }
 
+function breadthFirst(tree) {
+  let node = tree.root;
 
-module.exports = { Node, BinarySearchTree, BinaryTree }
+  if (node === null) {
+    return 'Empty Tree';
+  }
+
+  let temp = [];
+  let outPut = [];
+  temp.push(node);
+
+  while (temp.length > 0) {
+    let currentNode = temp[0];
+    if (currentNode.left !== null) {
+      temp.push(currentNode.left)
+    }
+
+    if (currentNode.right !== null) {
+      temp.push(currentNode.right)
+    }
+    outPut.push(temp.shift().value)
+  }
+
+  return outPut;
+}
+
+
+module.exports = { Node, BinarySearchTree, BinaryTree, breadthFirst }
