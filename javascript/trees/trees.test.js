@@ -1,6 +1,7 @@
 const Node = require('./trees').Node;
 const BinaryTree = require('./trees').BinaryTree;
 const BinarySearchTree = require('./trees').BinarySearchTree;
+const breadthFirst = require('./trees').breadthFirst;
 
 describe('tree',()=>{
 
@@ -96,6 +97,34 @@ describe('Get max node', () => {
     })
 })
 
+describe('Breadth First Traversal',()=>{
+    let tree = new BinaryTree();
+    let node1 = new Node(2);
+    let node2 = new Node(5);
+    let node3 = new Node(10);
+    let node4 = new Node(6);
+    let node5 = new Node(13);
+    let node6 = new Node(17);
+    let node7 = new Node(3);
+    let node8 = new Node(6);
+
+    tree.root = node1;
+    tree.root.left = node2;
+    tree.root.right = node3;
+    tree.root.left.left = node4;
+    tree.root.left.right = node5;
+    tree.root.right.left = node6;
+    tree.root.right.right = node7;
+    tree.root.right.right.left = node8;
+ 
+    let tree2 = new BinaryTree();
+  test('Can successfully return an array of all values in the tree, in the order they were encountered',()=>{
+      expect(breadthFirst(tree)).toEqual([2, 5, 10, 6, 13, 17, 3, 6]);
+  });
+  test('Test expected to fail on an empty tree',()=>{
+    expect(breadthFirst(tree2)).toEqual('Empty Tree');
+  });
+})
 
 
 
