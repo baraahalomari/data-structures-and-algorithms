@@ -19,3 +19,9 @@ Implement a Hashtable Class
 - **contains :** Arguments: key , Returns: Boolean then indicating if the key exists in the table already.
 
 - **hash :** Arguments: key , Returns: Index in the collection for that key
+
+- **repeatedWord :** Find the first repeated word in a book.
+
+## white board
+
+![white-board](./33.png)
