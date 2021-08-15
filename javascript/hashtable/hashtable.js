@@ -102,9 +102,27 @@ class Hashtable {
 
 }
 
+function repeatedWord(string) {
+
+  let hashTable = new Hashtable(4000);
+  let keys = string.toLowerCase().split(',').join('').split(' ');
+
+  for (let i = 0; i < keys.length; i++) {
+    if (hashTable.contains(keys[i])) {
+
+      return keys[i];
+    } else {
+      
+      hashTable.add(keys[i]);
+    }
+  }
+  return 'cannot find words in an empty string';
+}
+
 
 module.exports = {
   Node,
   LinkedList,
-  Hashtable
+  Hashtable,
+  repeatedWord
 }
