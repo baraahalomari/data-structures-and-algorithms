@@ -22,6 +22,8 @@ Note : I worked as a group with my colleagues .
 
 **breadthFirst**: list of all values in the tree, in the order they were encountered
 
+**treeIntersection**: take tow arguments: two binary trees  return an array.
+
 ## UML Diagrame
 
 ![uml](./33.png)

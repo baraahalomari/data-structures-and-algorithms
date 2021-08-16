@@ -2,24 +2,26 @@ const Node = require('./trees').Node;
 const BinaryTree = require('./trees').BinaryTree;
 const BinarySearchTree = require('./trees').BinarySearchTree;
 const breadthFirst = require('./trees').breadthFirst;
+const treeIntersection = require('./trees').treeIntersection;
 
-describe('tree',()=>{
 
-    test('Instantiate an empty tree',()=>{
+describe('tree', () => {
+
+    test('Instantiate an empty tree', () => {
         let tree = new BinaryTree();
         expect(tree instanceof BinaryTree).toBe(true);
     })
 
-    test('Instantiate a tree with a single root node',()=>{
+    test('Instantiate a tree with a single root node', () => {
         let tree = new BinaryTree();
         let head = new Node(1);
-        tree.root=head;
+        tree.root = head;
         expect(tree.root.value).toBe(1);
         expect(tree.root.right).toBe(null);
         expect(tree.root.left).toBe(null);
     })
-    test('Add a left child and right child to a single root node',()=>{
-      
+    test('Add a left child and right child to a single root node', () => {
+
         let tree = new BinarySearchTree();
         tree.add(10);
         tree.add(5);
@@ -28,7 +30,7 @@ describe('tree',()=>{
         expect(tree.root.right.value).toBe(15);
         expect(tree.root.left.value).toBe(5);
     })
-    test('Return a collection ',()=>{
+    test('Return a collection ', () => {
         let tree = new BinarySearchTree();
         tree.add(10);
         tree.add(5);
@@ -37,11 +39,11 @@ describe('tree',()=>{
         tree.add(15);
         tree.add(13);
         tree.add(17);
-        expect(tree.preOrder()).toEqual([10,5,3,7,15,13,17]);
-        expect(tree.inOrder()).toEqual([3,5,7,10,13,15,17]);
-        expect(tree.postOrder()).toEqual([3,7,5,13,17,15,10]);
+        expect(tree.preOrder()).toEqual([10, 5, 3, 7, 15, 13, 17]);
+        expect(tree.inOrder()).toEqual([3, 5, 7, 10, 13, 15, 17]);
+        expect(tree.postOrder()).toEqual([3, 7, 5, 13, 17, 15, 10]);
     })
-    test('Inorder traversal',()=>{
+    test('Inorder traversal', () => {
         let tree = new BinarySearchTree();
         tree.add(10);
         tree.add(5);
@@ -50,9 +52,9 @@ describe('tree',()=>{
         tree.add(15);
         tree.add(13);
         tree.add(17);
-        expect(tree.inOrder()).toEqual([3,5,7,10,13,15,17]);
+        expect(tree.inOrder()).toEqual([3, 5, 7, 10, 13, 15, 17]);
     })
-    test('Postorder traversal',()=>{
+    test('Postorder traversal', () => {
         let tree = new BinarySearchTree();
         tree.add(10);
         tree.add(5);
@@ -61,7 +63,7 @@ describe('tree',()=>{
         tree.add(15);
         tree.add(13);
         tree.add(17);
-        expect(tree.postOrder()).toEqual([3,7,5,13,17,15,10]);
+        expect(tree.postOrder()).toEqual([3, 7, 5, 13, 17, 15, 10]);
     })
 })
 
@@ -88,16 +90,16 @@ describe('Get max node', () => {
     tree.root.right.right = tree7;
     tree.root.left.left.left = tree8;
     tree.root.left.left.right = tree9;
-    test('max node value in a binary tree',()=>{
+    test('max node value in a binary tree', () => {
         expect(tree.getMax()).toBe(70);
     })
-    test('returns an error statement for an empty tree',()=>{
+    test('returns an error statement for an empty tree', () => {
         let tree2 = new BinaryTree();
         expect(tree2.getMax()).toBe('cant get max of an empty tree');
     })
 })
 
-describe('Breadth First Traversal',()=>{
+describe('Breadth First Traversal', () => {
     let tree = new BinaryTree();
     let node1 = new Node(2);
     let node2 = new Node(5);
@@ -116,16 +118,89 @@ describe('Breadth First Traversal',()=>{
     tree.root.right.left = node6;
     tree.root.right.right = node7;
     tree.root.right.right.left = node8;
- 
+
     let tree2 = new BinaryTree();
-  test('Can successfully return an array of all values in the tree, in the order they were encountered',()=>{
-      expect(breadthFirst(tree)).toEqual([2, 5, 10, 6, 13, 17, 3, 6]);
-  });
-  test('Test expected to fail on an empty tree',()=>{
-    expect(breadthFirst(tree2)).toEqual('Empty Tree');
-  });
+    test('Can successfully return an array of all values in the tree, in the order they were encountered', () => {
+        expect(breadthFirst(tree)).toEqual([2, 5, 10, 6, 13, 17, 3, 6]);
+    });
+    test('Test expected to fail on an empty tree', () => {
+        expect(breadthFirst(tree2)).toEqual('Empty Tree');
+    });
 })
 
 
+describe('Trees Intersection', () => {
+
+    test('Gets the common node values between two identical trees', () => {
+
+        let tree1 = new BinarySearchTree();
+        let tree2 = new BinarySearchTree();
+
+        tree1.add(10);
+        tree1.add(5);
+        tree1.add(3);
+        tree1.add(7);
+        tree1.add(15);
+        tree1.add(13);
+        tree1.add(17);
+        tree2.add(10);
+        tree2.add(5);
+        tree2.add(3);
+        tree2.add(7);
+        tree2.add(15);
+        tree2.add(13);
+        tree2.add(17);
+
+        expect(treeIntersection(tree1, tree2)).toEqual([10, 5, 3, 7, 15, 13, 17]);
+    })
+
+    
+    test('Gets the common node values in two trees', () => {
+
+        let tree1 = new BinarySearchTree();
+        let tree2 = new BinarySearchTree();
+
+        tree1.add(10);
+        tree1.add(5);
+        tree1.add(3);
+        tree1.add(7);
+        tree1.add(15);
+        tree1.add(13);
+        tree1.add(5);
+        tree2.add(10);
+        tree2.add(5);
+        tree2.add(3);
+        tree2.add(7);
+        tree2.add(15);
+        tree2.add(13);
+        tree2.add(17);
+
+        expect(treeIntersection(tree1, tree2)).toEqual([10, 5, 3, 7, 15, 13]);
+    })
+
+
+    test('No intersection', () => {
+
+        let tree1 = new BinarySearchTree();
+        let tree2 = new BinarySearchTree();
+
+        tree1.add(10);
+        tree1.add(5);
+        tree1.add(3);
+        tree1.add(7);
+        tree1.add(15);
+        tree1.add(13);
+        tree1.add(5);
+        tree2.add(0);
+        tree2.add(0);
+        tree2.add(0);
+        tree2.add(0);
+        tree2.add(0);
+        tree2.add(0);
+        tree2.add(0);
+
+        expect(treeIntersection(tree1, tree2)).toEqual([]);
+    })
+})
 
 
