@@ -21,7 +21,7 @@ Implement a Hashtable Class
 - **hash :** Arguments: key , Returns: Index in the collection for that key
 
 - **repeatedWord :** Find the first repeated word in a book.
-
+- **leftjoin :** Write a function called left join take two hash maps
 ## white board
 
 ![white-board](./33.png)
